@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardenly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7fc082;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #7fc082;
+            color: white;
+            padding: 20px;
+        }
+
+        header img {
+            height: 200px;
+            width: 200px;
+        }
+
+        nav {
+            background-color: #74d079;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #7fc082;
+            z-index: 0;
+        }
+
+        .hero h2 {
+            position: relative;
+            font-size: 2.5em;
+            z-index: 1;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            margin: auto;
+            background-color: #7fc082;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card2 {
+            background-color: #beddc0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .start-button {
+            border-radius: 10px;
+            background-color: #7fc082;
+            border: #FFFFFF;
+            border-width: 2px;
+            width: 100px;
+            height: 50px;
+            margin: 10px;
+            font-size: x-large;
+            transition: background-color 0.5s ease, border 0.5s ease; 
+            cursor: pointer;
+        }
+
+        .start-button:hover {
+            background-color: #FFFFFF;
+            border: #7fc082;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7fc082;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            max-width: 100%;
+            width: calc(100% - 20px); 
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .form-image {
+            display: block;
+            margin: 0 auto 20px; 
+            max-width: 200px; 
+            height: auto; 
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="start.html">About</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="support.html", style="background-color: aliceblue; color: #74d079; padding: 4px; border-radius: 4px;">Help</a></li>
+            <li><a href="plants.html">Plants</a></li>
+            <li><a href="redeem.html">Codes</a></li>
+            <li><a href="leader.html">Leaderboard</a></li>
+        </ul>
+    </nav>
+    <h1>Contact Us</h1>
+    <img src="../res/Gardenly-removebg-preview.png" alt="Contact Us" class="form-image">
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

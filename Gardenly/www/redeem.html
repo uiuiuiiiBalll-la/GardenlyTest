@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Codes - Gardenly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7fc082;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #74d079;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .points-section {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .redeemed {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="start.html">About</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="support.html">Help</a></li>
+            <li><a href="plants.html">Plants</a></li>
+            <li><a href="redeem.html" style="background-color: aliceblue; color: #74d079; padding: 4px; border-radius: 4px;">Codes</a></li>
+            <li><a href="leader.html">Leaderboard</a></li>
+        </ul>
+    </nav>
+
+    <h1>Redeem Codes</h1>
+    <p>Enter the code you received to redeem your rewards.</p>
+    <p><b>FREE CODE UPON LOGIN: FREELOGINGIFT</b></p>
+
+    <form onsubmit="redeemCode(event)">
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="output"></p>
+
+    <section class="points-section">
+        <h3>Your Points: <span id="points">0</span></h3>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let points = localStorage.getItem("points");
+            if (points === null) {
+                localStorage.setItem("points", "0");
+                points = "0";
+            }
+            document.getElementById("points").innerText = points;
+        });
+
+        function redeemCode(event) {
+            event.preventDefault();
+
+            let code = document.getElementById("code").value.trim();
+            let output = document.getElementById("output");
+            let points = parseInt(localStorage.getItem("points"));
+
+            if (code === "FREELOGINGIFT") {
+                if (localStorage.getItem("FREELOGINGIFT_REDEEMED") === "true") {
+                    output.innerText = "❌ Code already used!";
+                    output.classList.add("redeemed");
+                } else {
+                    points += 100;
+                    localStorage.setItem("points", points);
+                    localStorage.setItem("FREELOGINGIFT_REDEEMED", "true");
+                    document.getElementById("points").innerText = points;
+                    output.innerText = "✅ Code redeemed! You received 100 points.";
+                    output.classList.remove("redeemed");
+                }
+            } else {
+                output.innerText = "❌ Invalid code. Please try again.";
+                output.classList.add("redeemed");
+            }
+
+            document.getElementById("code").value = "";
+        }
+    </script>
+
+</body>
+</html>

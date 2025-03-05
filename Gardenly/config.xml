@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget
+    android-versionCode="1"
+    id="com.app.GardenlyTest"
+    version="1.0.0"
+    xmlns="http://www.w23.org/ns/widgets">
+
+    <name>GardenlyTest</name>
+    <description>Test</description>
+    <author>Test</author>
+
+    <preference name="orientation" value="potrait" />
+
+</widget>

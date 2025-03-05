@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardenly</title>
+    <link rel="icon" type="image/x-icon" href="../res/Gardenly-removebg-preview.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7fc082;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #7fc082;
+            color: white;
+            padding: 20px;
+        }
+
+        header img {
+            height: 200px;
+            width: 200px;
+        }
+
+        nav {
+            background-color: #74d079;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #7fc082;
+            z-index: 0;
+        }
+
+        .hero h2 {
+            position: relative;
+            font-size: 2.5em;
+            z-index: 1;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            margin: auto;
+            background-color: #7fc082;
+        }
+
+        .feature-card, .feature-card2, .points-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card2 {
+            background-color: #beddc0;
+        }
+
+        .start-button, .redeem-button {
+            border-radius: 10px;
+            background-color: #7fc082;
+            border: none;
+            width: 120px;
+            height: 50px;
+            margin: 10px;
+            font-size: large;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+
+        .start-button:hover, .redeem-button:hover {
+            background-color: #ffffff;
+            color: #7fc082;
+            border: 2px solid #7fc082;
+        }
+
+        .points-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .voucher {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border: 2px dashed #333;
+            background-color: #fffae6;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" style="background-color: aliceblue; color: #74d079; padding: 4px; border-radius: 4px;">About</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="support.html">Help</a></li>
+            <li><a href="plants.html">Plants</a></li>
+            <li><a href="redeem.html">Codes</a></li>
+            <li><a href="leader.html">Leaderboard</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="../res/Gardenly-removebg-preview.png" alt="Gardenly Logo">
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to Gardenly!</h2>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Community Gardens</h3>
+            <p>Explore over 2000 community gardens in Singapore.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Gardening Tips</h3>
+            <p>Get expert tips to make your garden thrive year-round.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Community Support</h3>
+            <p>Join a community of plant lovers and share your experiences.</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card2">
+            <h1><b>Start Your Gardening Journey Now!</b></h1>
+            <a href="home.html"><button class="start-button">Start</button></a>
+        </div>
+    </section>
+
+    <section class="points-section">
+        <h3>Your Points: <span id="points">100</span></h3>
+        <button class="redeem-button" onclick="redeemPoints()">Redeem</button>
+        <div class="voucher" id="voucher">
+            🎉 Voucher Code: <span>12345678ABCDEFGH</span>
+        </div>
+    </section>
+
+    <script>
+        function redeemPoints() {
+            let pointsElement = document.getElementById("points");
+            let voucherElement = document.getElementById("voucher");
+
+            let points = parseInt(pointsElement.innerText);
+            if (points >= 100) {
+                points -= 100;
+                pointsElement.innerText = points;
+                voucherElement.style.display = "block";
+            } else {
+                alert("Not enough points to redeem a voucher!");
+            }
+        }
+    </script>
+
+</body>
+</html>

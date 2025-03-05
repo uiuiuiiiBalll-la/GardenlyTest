@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+    <title>Leaderboard</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="start.html">About</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="support.html">Help</a></li>
+            <li><a href="plants.html">Plants</a></li>
+            <li><a href="redeem.html">Codes</a></li>
+            <li><a href="leader.html" style="background-color: aliceblue; color: #74d079; padding: 4px; border-radius: 4px;">Leaderboard</a></li>
+        </ul>
+    </nav>
+    <img src="../res/Screenshot_2025-03-05_at_8.30.17_AM-removebg-preview.png"  style="width: 250px; height: 200px;"class="center">
+  <table class="leaderboard">
+      <thead>
+          <tr1
+              <th>Rank</th>
+              <th>User</th>
+              <th>Points</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="leaderboard-item" data-points="150">
+              <td>1</td>
+              <td>User 1</td>
+              <td>150</td>
+          </tr>
+          <tr class="leaderboard-item" data-points="120">
+              <td>2</td>
+              <td>User 2</td>
+              <td>120</td>
+          </tr>
+          <tr class="leaderboard-item" data-points="100">
+              <td>3</td>
+              <td>User 3</td>
+              <td>100</td>
+          </tr>
+          <tr class="leaderboard-item" data-points="80">
+              <td>4</td>
+              <td>User 4</td>
+              <td>80</td>
+          </tr>
+          <tr class="leaderboard-item" data-points="60">
+              <td>5</td>
+              <td>User 5</td>
+              <td>60</td>
+          </tr>
+      </tbody>
+  </table>
+
+
+    <script>
+        const leaderboard = document.querySelector('.leaderboard');
+        const items = Array.from(leaderboard.children);
+        items.sort((a, b) => b.dataset.points - a.dataset.points);
+        leaderboard.innerHTML = '';
+        items.forEach(item => leaderboard.appendChild(item));
+    </script>
+</body>
+</html>
